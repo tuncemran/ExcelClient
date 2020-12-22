@@ -1,0 +1,15 @@
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\ExcelClient.exe.config
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\ExcelClient.exe
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\ExcelClient.pdb
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\ExcelDataReader.dll
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\ExcelDataReader.pdb
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\ExcelDataReader.xml
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\obj\Debug\ExcelClient.csprojAssemblyReference.cache
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\obj\Debug\ExcelClient.csproj.CoreCompileInputs.cache
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\obj\Debug\ExcelClient.csproj.CopyComplete
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\obj\Debug\ExcelClient.exe
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\obj\Debug\ExcelClient.pdb
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\TUNC\source\repos\ExcelClient\ExcelClient\bin\Debug\System.Drawing.Common.dll

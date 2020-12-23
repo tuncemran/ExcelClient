@@ -30,11 +30,38 @@ namespace ExcelClient
             // merge cells
             //worksheet.Range[worksheet.Cells[1,1], worksheet.Cells[1, 8]].Merge();
             // Table Name
+            worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 14]].Merge();
             worksheet.Cells[1, 1] = tableName;
             worksheet.Cells.Font.Size = 15;
+
+            worksheet.Cells[2, 2] = "ORGANİZASYON";
+            worksheet.Cells[2, 3] = "SÜREÇ";
+            // cell merger
+            // kişsel veri
+            worksheet.Range[worksheet.Cells[2, 4], worksheet.Cells[2, 9]].Merge();
+            worksheet.Cells[2, 4] = "KİŞİSEL VERİ";
+
+            worksheet.Cells[2, 10] = "SAKLAMA ve İMHA";
+            // aktarma
+            worksheet.Range[worksheet.Cells[2, 11], worksheet.Cells[2, 12]].Merge();
+            worksheet.Cells[2, 11] = "AKTARMA";
+            //alınan güvenlik tedbirleri
             
+            worksheet.Cells[2, 13] = "ALINAN GÜVENLİK TEDBİRLERİ";
+            worksheet.Range[worksheet.Cells[2, 13], worksheet.Cells[2, 14]].Columns.AutoFit();
+            worksheet.Range[worksheet.Cells[2, 13], worksheet.Cells[2, 14]].Merge();
+
+            // add columns
             
-            AddTable(2,1);
+            int xIndex = 1;
+            foreach (DataColumn column in DataTable.Columns)
+            {
+                worksheet.Cells[3, xIndex] = column.ColumnName;
+                xIndex++;
+            }
+            worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[2, 14]].Columns.AutoFit();
+            AddTable(4,1);
+            AddStyleToTable();
             workbook.SaveAs(path); ;
             
         }
@@ -52,16 +79,7 @@ namespace ExcelClient
 
         public void AddTable(int startX, int startY)
         {
-            //borders
-            Range cellRange = worksheet.Range[worksheet.Cells[startX, startY], worksheet.Cells[(startX - 1) + DataTable.Rows.Count, DataTable.Columns.Count]];
-            Borders border = cellRange.Borders;
-            border.LineStyle = XlLineStyle.xlContinuous;
-            border.Weight = 2d;
-            
-            // header
-            Range headerRange = worksheet.Range[worksheet.Cells[startX, startY], worksheet.Cells[startX , DataTable.Columns.Count]];
-            headerRange.Interior.Color = ColorTranslator.ToOle(Color.Aqua);
-            
+
             // data
             int xCounter = startX;
             int yCounter = startY;
@@ -69,18 +87,31 @@ namespace ExcelClient
             {
                 foreach (DataColumn column in DataTable.Columns)
                 {
-                    var cell = row[column];
                     worksheet.Cells[xCounter,yCounter] = row[column];
                     yCounter++;
                 }
+
+                
+                worksheet.Range[worksheet.Cells[xCounter, 1], worksheet.Cells[xCounter + 1, DataTable.Columns.Count]].Rows.Style.VerticalAlignment =
+                    XlVAlign.xlVAlignTop;
 
                 yCounter = startY;
                 xCounter++;
 
             }
-            cellRange.EntireColumn.AutoFit();
 
-            //celLRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, DataTable.Columns.Count]];
+        }
+
+        public void AddStyleToTable()
+        {
+            Range cellRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[3 + DataTable.Rows.Count, DataTable.Columns.Count]];
+            cellRange.Style.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            //cellRange.Columns.AutoFit();
+            cellRange.Rows.AutoFit();
+            Borders border = cellRange.Borders;
+            border.LineStyle = XlLineStyle.xlContinuous;
+            border.Weight = 2d;
+            
         }
 
     }
